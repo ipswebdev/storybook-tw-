@@ -1,7 +1,11 @@
-export const Button = () => {
+import { ComponentProps } from "react";
+
+type ButtonProps = ComponentProps<"button">;
+
+export const Button = ({...props} : ButtonProps) => {
     return (
-        <button className="text-blue-500">
-            Button
+        <button className="text-blue-500" {...props}>
+            {props && props.children || 'Button'}
         </button>
     )
 }
